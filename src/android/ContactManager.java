@@ -253,7 +253,7 @@ public class ContactManager extends CordovaPlugin {
                 try {
                     JSONObject contact = contactAccessor.getContactById(id);
                        
-                     AlertDialog alertDialog = new AlertDialog.Builder(this.cordova.getActivity()).create();
+                     AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                      alertDialog.setTitle("Alert");
                      alertDialog.setMessage("Alert message to be shown");
                      alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
