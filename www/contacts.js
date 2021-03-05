@@ -73,7 +73,7 @@ var contacts = {
             // don't create new Contact object, use current
             
             var contact = result instanceof Contact ? result : contacts.create(result);
-            alert("Contact: " + contact[0].phoneNumbers[0]);
+            //alert("Contact: " + contact.phoneNumbers[0]);
             successCB(convertUtils.toCordovaFormat(contact));
         };
         exec(win, errorCB, "Contacts", "pickContact", []);
