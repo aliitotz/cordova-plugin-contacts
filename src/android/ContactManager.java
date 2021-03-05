@@ -37,6 +37,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.RawContacts;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 import java.lang.reflect.Method;
 
@@ -252,6 +253,7 @@ public class ContactManager extends CordovaPlugin {
 
                 try {
                     JSONObject contact = contactAccessor.getContactById(id);
+                    JOptionPane.showMessageDialog(null, "Contacts: " + contact);
                     this.callbackContext.success(contact);
                     return;
                 } catch (JSONException e) {
