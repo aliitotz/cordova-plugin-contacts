@@ -71,7 +71,9 @@ var contacts = {
         var win = function (result) {
             // if Contacts.pickContact return instance of Contact object
             // don't create new Contact object, use current
+            
             var contact = result instanceof Contact ? result : contacts.create(result);
+            alert("Contact: " + contact);
             successCB(convertUtils.toCordovaFormat(contact));
         };
         exec(win, errorCB, "Contacts", "pickContact", []);
