@@ -37,7 +37,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.RawContacts;
-import static javax.swing.JOptionPane.showMessageDialog;
 
 import java.lang.reflect.Method;
 
@@ -253,7 +252,18 @@ public class ContactManager extends CordovaPlugin {
 
                 try {
                     JSONObject contact = contactAccessor.getContactById(id);
-                    JOptionPane.showMessageDialog(null, "Contacts: " + contact);
+                       
+                     AlertDialog alertDialog = new AlertDialog.Builder(this.cordova.getActivity()).create();
+                     alertDialog.setTitle("Alert");
+                     alertDialog.setMessage("Alert message to be shown");
+                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                         new DialogInterface.OnClickListener() {
+                             public void onClick(DialogInterface dialog, int which) {
+                                 dialog.dismiss();
+                             }
+                         });
+                     alertDialog.show();
+                       
                     this.callbackContext.success(contact);
                     return;
                 } catch (JSONException e) {
